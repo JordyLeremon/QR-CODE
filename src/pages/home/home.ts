@@ -7,6 +7,7 @@ import { File } from '@ionic-native/file';
 import { FileOpener } from '@ionic-native/file-opener';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import {Http, Headers, RequestOptions} from '@angular/http';
+import { EnvoiPage } from '../envoi/envoi';
  
 
 @Component({
@@ -32,6 +33,8 @@ export class HomePage {
   data13: any = {};
   data14: any = {};
   data15: any = {};
+  data16: any = {};
+  data17: any = {};
   constructor(public navCtrl: NavController, private barcodeScanner: BarcodeScanner, public navParams: NavParams, private file: File, 
     private fileOpener: FileOpener, 
     private socialSharing: SocialSharing, public http: Http) {
@@ -51,6 +54,8 @@ export class HomePage {
       this.data13.Mac_Address = '';
       this.data14.Mac_Address = '';
       this.data15.Mac_Address = '';
+      this.data16.Sim_Card = '';
+      this.data17.Num_user = '';
       
       this.http= http;
 
@@ -127,7 +132,7 @@ Submit() {
 
   var link = 'http://selfeden.fr/api2.php';
   
-  var myData = JSON.stringify({Mac_Address: this.data1.Mac_Address, Mac_Address2:  this.data2.Mac_Address, Mac_Address3:  this.data3.Mac_Address, Mac_Address4:  this.data4.Mac_Address, Mac_Address5:  this.data5.Mac_Address, Mac_Address6:  this.data6.Mac_Address, Mac_Address7:  this.data7.Mac_Address, Mac_Address8:  this.data8.Mac_Address, Mac_Address9:  this.data9.Mac_Address, Mac_Address10:  this.data10.Mac_Address, Mac_Address11:  this.data11.Mac_Address, Mac_Address12:  this.data12.Mac_Address, Mac_Address13:  this.data13.Mac_Address, Mac_Address14:  this.data14.Mac_Address, Mac_Address15:  this.data15.Mac_Address});
+  var myData = JSON.stringify({Mac_Address: this.data1.Mac_Address, Mac_Address2:  this.data2.Mac_Address, Mac_Address3:  this.data3.Mac_Address, Mac_Address4:  this.data4.Mac_Address, Mac_Address5:  this.data5.Mac_Address, Mac_Address6:  this.data6.Mac_Address, Mac_Address7:  this.data7.Mac_Address, Mac_Address8:  this.data8.Mac_Address, Mac_Address9:  this.data9.Mac_Address, Mac_Address10:  this.data10.Mac_Address, Mac_Address11:  this.data11.Mac_Address, Mac_Address12:  this.data12.Mac_Address, Mac_Address13:  this.data13.Mac_Address, Mac_Address14:  this.data14.Mac_Address, Mac_Address15:  this.data15.Mac_Address, Sim_Card: this.data16.Sim_Card, Num_user: this.data17.Num_user});
   
   
   let headers = new Headers(
@@ -179,7 +184,7 @@ Submit() {
   
 
   nextpage(){
-    this.navCtrl.push(AccueilPage)
+    this.navCtrl.push(EnvoiPage)
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
